@@ -2,126 +2,177 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AZROH — Premium South Indian Fashion</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AZROH — Wearable Art</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@300;500&display=swap" rel="stylesheet">
+
   <style>
+    :root {
+      --black: #0B0B0B;
+      --ivory: #F8F5F0;
+      --gold: #C5A572;
+      --softwhite: #EAEAEA;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
     body {
-      margin: 0;
+      background-color: var(--black);
+      color: var(--softwhite);
       font-family: 'Inter', sans-serif;
-      background: #fff;
-      color: #111;
+      overflow-x: hidden;
     }
-    header {
-      background: #0f0f0f;
-      color: white;
-      padding: 3rem 2rem;
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: url('images/hero.jpg') center/cover no-repeat;
       text-align: center;
+      color: var(--ivory);
     }
-    header h1 {
+    .hero h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 3rem;
-      margin: 0;
-      letter-spacing: 2px;
+      font-size: 4rem;
+      letter-spacing: 3px;
+      margin-bottom: 0.5rem;
+      animation: fadeIn 2s ease-out forwards;
     }
-    header p {
-      margin: 1rem 0 0;
+    .hero p {
       font-size: 1.2rem;
-      font-weight: 300;
-      color: #ccc;
+      margin-bottom: 2rem;
+      animation: fadeIn 3s ease-out forwards;
     }
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      padding: 3rem 2rem;
+    .hero a {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      background-color: var(--gold);
+      color: var(--black);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
     }
-    .card {
-      background: #fafafa;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.06);
-      transition: transform 0.3s;
+    .hero a:hover {
+      background-color: var(--ivory);
     }
-    .card:hover {
-      transform: translateY(-6px);
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
     }
-    .card img {
-      width: 100%;
-      height: auto;
-      display: block;
+
+    /* Scroll Sections */
+    section {
+      padding: 6rem 10%;
     }
-    .card .text {
-      padding: 1.5rem;
+    section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: var(--gold);
     }
-    .card h3 {
+    section p {
       font-size: 1.1rem;
-      margin: 0 0 0.5rem;
+      line-height: 1.8;
+      max-width: 800px;
     }
-    .card p {
-      font-size: 0.9rem;
-      color: #666;
+
+    /* Product Grid */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
     }
-    .about {
-      background: #f8f8f8;
-      padding: 4rem 2rem;
-      text-align: center;
+    .product {
+      position: relative;
+      overflow: hidden;
     }
-    .about h2 {
-      font-family: 'Playfair Display';
-      font-size: 2.4rem;
+    .product img {
+      width: 100%;
+      transition: transform 0.5s ease;
     }
-    .about p {
-      max-width: 700px;
-      margin: 1.5rem auto;
-      font-size: 1rem;
-      color: #444;
+    .product:hover img {
+      transform: scale(1.05);
     }
+    .product-info {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      padding: 1rem;
+      background: rgba(0,0,0,0.5);
+      color: var(--ivory);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .product:hover .product-info {
+      opacity: 1;
+    }
+
+    /* Footer */
     footer {
-      background: #111;
-      color: #ccc;
-      padding: 2rem;
+      background-color: #111;
       text-align: center;
-      font-size: 0.85rem;
+      padding: 2rem;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
-  <header>
+
+  <!-- Hero Section -->
+  <div class="hero">
     <h1>AZROH</h1>
-    <p>Rooted in South. Designed for the World.</p>
-  </header>
-  <section class="products">
-    <div class="card">
-      <img src="https://i.imgur.com/zojOwVo.jpg" alt="Minimalist Empowering Tee" />
-      <div class="text">
-        <h3>Empowering Energy Tee</h3>
-        <p>Soft premium cotton. Art that breathes emotion and energy.</p>
+    <p>Wearable Art. Eternal Stories.</p>
+    <a href="#collection">Shop the Collection</a>
+  </div>
+
+  <!-- Brand Philosophy -->
+  <section>
+    <h2>Fashion as Soul Armor</h2>
+    <p>Azroh is more than clothing — it is a movement for those who feel deeply, express through silence, and walk the fine line between heritage and rebellion. Each piece is an art form, crafted to be worn, felt, and remembered.</p>
+  </section>
+
+  <!-- Craftsmanship -->
+  <section>
+    <h2>Craftsmanship & Process</h2>
+    <p>Our T‑shirts are built from premium fabrics, printed with museum-grade techniques, and designed with emotional storytelling in mind. Every drop is limited, never reprinted, making your Azroh piece truly one of a kind.</p>
+  </section>
+
+  <!-- The Collection -->
+  <section id="collection">
+    <h2>The Collection</h2>
+    <div class="product-grid">
+      <div class="product">
+        <img src="images/mockup1.jpg" alt="Product 1">
+        <div class="product-info">
+          <p>Collector's Edition Tee — ₹4,500</p>
+        </div>
       </div>
-    </div>
-    <div class="card">
-      <img src="https://i.imgur.com/E9vLOcJ.jpg" alt="Traditional Abstract Shirt" />
-      <div class="text">
-        <h3>Tradition Abstract</h3>
-        <p>A print inspired by temple murals. Art and soul stitched together.</p>
+      <div class="product">
+        <img src="images/mockup2.jpg" alt="Product 2">
+        <div class="product-info">
+          <p>Gallery Drop Tee — ₹3,500</p>
+        </div>
       </div>
-    </div>
-    <div class="card">
-      <img src="https://i.imgur.com/GB17nG9.jpg" alt="T-shirt with Tamil poem art" />
-      <div class="text">
-        <h3>Poetic Soul Tee</h3>
-        <p>A brushstroke of silence, loneliness, and hope. For those who feel deeply.</p>
+      <div class="product">
+        <img src="images/mockup3.jpg" alt="Product 3">
+        <div class="product-info">
+          <p>Limited Street Tee — ₹3,500</p>
+        </div>
       </div>
     </div>
   </section>
-  <section class="about">
-    <h2>What is AZROH?</h2>
-    <p>
-      AZROH is more than a clothing label. It's a movement. Designed for those who feel deeply, express through silence, and walk the fine line between heritage and modernity. Every piece is a wearable artwork — emotional, bold, and rooted in Tamil soul.
-    </p>
-  </section>
+
+  <!-- Footer -->
   <footer>
-    &copy; 2025 AZROH. All Rights Reserved. | Instagram: @azroh.official | hello@azroh.com
+    © 2025 AZROH — Wearable Art.
   </footer>
+
 </body>
 </html>
