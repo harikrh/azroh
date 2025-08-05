@@ -146,3 +146,116 @@ footer {
     display: block;
   }
 }
+
+/* -----------------------------------
+   Product Detail & Checkout Pages
+----------------------------------- */
+
+.product-page, .checkout-page {
+  padding: 3rem 10%;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 2rem;
+  text-decoration: none;
+  color: var(--gold);
+  font-weight: bold;
+}
+
+.back-link:hover {
+  color: var(--ivory);
+}
+
+.product-detail {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+}
+
+.product-images img {
+  max-width: 500px;
+  width: 100%;
+  border-radius: 12px;
+}
+
+.product-info-detail {
+  flex: 1;
+}
+
+.price {
+  font-size: 1.5rem;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.description {
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.buy-now-btn {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--black);
+  padding: 1rem 2rem;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background 0.3s ease;
+}
+
+.buy-now-btn:hover {
+  background: var(--ivory);
+}
+
+/* Checkout Form */
+.checkout-form {
+  max-width: 500px;
+  margin: auto;
+}
+
+.checkout-form h1 {
+  margin-bottom: 2rem;
+  font-family: 'Playfair Display', serif;
+  color: var(--gold);
+}
+
+.checkout-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.checkout-form input,
+.checkout-form textarea,
+.checkout-form select {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1.5rem;
+  border: none;
+  border-radius: 6px;
+  background-color: #222;
+  color: var(--softwhite);
+}
+
+.checkout-form input:focus,
+.checkout-form textarea:focus,
+.checkout-form select:focus {
+  outline: 2px solid var(--gold);
+}
+
+.checkout-form button {
+  width: 100%;
+  background: var(--gold);
+  color: var(--black);
+  padding: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.checkout-form button:hover {
+  background: var(--ivory);
+}
