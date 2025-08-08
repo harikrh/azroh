@@ -18,9 +18,9 @@
   <div class="hero">
     <div class="hero-media">
       <video autoplay muted loop playsinline preload="metadata" poster="images/hero.jpg" id="heroVideo">
-        <!-- Add webm for broader compatibility, mp4 kept as is -->
-        <source src="videos/hero.webm" type="video/webm">
+        <!-- Put MP4 first for Safari; keep WebM as optional second -->
         <source src="videos/hero.mp4" type="video/mp4">
+        <source src="videos/hero.webm" type="video/webm">
       </video>
       <!-- Mobile/No-video fallback -->
       <img src="images/hero.jpg" alt="" aria-hidden="true">
@@ -80,5 +80,36 @@
     © 2025 AZROH — Wearable Art.
   </footer>
 
+  <!-- Autoplay nudge + graceful fallback -->
+  <script>
+    (function() {
+      const v = document.getElementById('heroVideo');
+      if (!v) return;
+
+      function showFallback() {
+        document.documentElement.classList.add('no-video');
+      }
+
+      function tryPlay() {
+        // ensure muted for autoplay policies
+        v.muted = true;
+        const p = v.play();
+        if (p && typeof p.then === 'function') {
+          p.catch(() => showFallback());
+        }
+      }
+
+      // Try once quickly, again when metadata is ready, and when tab becomes visible
+      tryPlay();
+      v.addEventListener('loadedmetadata', tryPlay, { once: true });
+      v.addEventListener('error', showFallback);
+      document.addEventListener('visibilitychange', () => {
+        if (!document.hidden && !v.paused) return;
+        tryPlay();
+      });
+      // Safety timeout in case nothing fires
+      setTimeout(tryPlay, 400);
+    })();
+  </script>
 </body>
 </html>
