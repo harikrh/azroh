@@ -5,21 +5,49 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>AZROH — Wearable Art</title>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@300;500&display=swap" rel="stylesheet">
+  <!-- SEO / Social basics -->
+  <meta name="description" content="AZROH — Wearable art in limited drops. Premium tees, never reprinted.">
+  <meta property="og:title" content="AZROH — Wearable Art">
+  <meta property="og:description" content="Limited, museum-grade T-shirts.">
+  <meta property="og:image" content="images/hero.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://your-domain.com/">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
 
   <!-- Styles -->
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
+  <!-- Top Nav -->
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">AZROH</a>
+      <nav class="nav-links">
+        <a href="#collection">Shop</a>
+        <a href="story.html">Story</a>
+        <a href="archive.html">Archive</a>
+        <a href="policies.html">Policies</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
   <!-- Hero Section -->
   <div class="hero">
-    <video autoplay muted loop playsinline poster="images/hero.jpg">
-      <source src="videos/hero.mp4" type="video/mp4">
-      <!-- Fallback image for browsers without autoplay -->
-      <img src="images/hero.jpg" alt="Azroh Wearable Art">
-    </video>
+    <div class="hero-media">
+      <video autoplay muted loop playsinline poster="images/hero.jpg">
+        <!-- Prevents download on mobile where we hide video -->
+        <source src="videos/hero.mp4" type="video/mp4" media="(min-width: 769px)">
+      </video>
+      <!-- Fallback image as a sibling so it shows on mobile -->
+      <img class="hero-fallback" src="images/hero.jpg" alt="Editorial hero showing Azroh wearable art aesthetic">
+    </div>
+    <div class="hero-overlay"></div>
     <div class="hero-text">
       <h1>AZROH</h1>
       <p>Wearable Art. Eternal Stories.</p>
@@ -30,50 +58,85 @@
   <!-- Brand Philosophy -->
   <section class="philosophy">
     <h2>Fashion as Soul Armor</h2>
+    <div class="section-subtle-rule"></div>
     <p>Azroh is more than clothing — it is a movement for those who feel deeply, express through silence, and walk the fine line between heritage and rebellion. Each piece is an art form, crafted to be worn, felt, and remembered.</p>
   </section>
 
   <!-- Craftsmanship -->
   <section class="craftsmanship">
     <h2>Craftsmanship & Process</h2>
-    <p>Our T‑shirts are built from premium fabrics, printed with museum-grade techniques, and designed with emotional storytelling in mind. Every drop is limited, never reprinted, making your Azroh piece truly one of a kind.</p>
+    <div class="section-subtle-rule"></div>
+    <p>Our T-shirts are built from premium fabrics, printed with museum-grade techniques, and designed with emotional storytelling in mind. Every drop is limited, never reprinted, making your Azroh piece truly one of a kind.</p>
   </section>
 
   <!-- The Collection -->
   <section id="collection" class="collection">
     <h2>The Collection</h2>
+    <div class="section-subtle-rule"></div>
     <div class="product-grid">
       <div class="product">
-        <a href="product1.html">
-          <img src="images/mockup1.jpg" alt="Collector's Edition Tee">
+        <a href="product1.html" aria-label="View Collector's Edition Tee">
+          <img src="images/mockup1.jpg" alt="Collector's Edition Tee — premium black tee with museum-grade print" loading="lazy">
         </a>
         <div class="product-info">
           <p>Collector's Edition Tee — ₹2,500</p>
+          <span class="badge" aria-label="Limited product">Limited</span>
         </div>
       </div>
       <div class="product">
-        <a href="product2.html">
-          <img src="images/mockup2.jpg" alt="Gallery Drop Tee">
+        <a href="product2.html" aria-label="View Gallery Drop Tee">
+          <img src="images/mockup2.jpg" alt="Gallery Drop Tee — curated art drop on premium fabric" loading="lazy">
         </a>
         <div class="product-info">
           <p>Gallery Drop Tee — ₹1,500</p>
+          <span class="badge" aria-label="New product">New</span>
         </div>
       </div>
       <div class="product">
-        <a href="product3.html">
-          <img src="images/mockup3.jpg" alt="Limited Street Tee">
+        <a href="product3.html" aria-label="View Limited Street Tee">
+          <img src="images/mockup3.jpg" alt="Limited Street Tee — limited run streetwear piece" loading="lazy">
         </a>
         <div class="product-info">
           <p>Limited Street Tee — ₹1,500</p>
+          <span class="badge" aria-label="Restock">Restock</span>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer>
-    © 2025 AZROH — Wearable Art.
+  <footer class="footer" role="contentinfo">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">AZROH</div>
+        <p>Wearable Art. Eternal Stories.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <a href="#collection">Shop</a>
+        <a href="archive.html">Archive</a>
+        <a href="story.html">Story</a>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <a href="policies.html#shipping">Shipping</a>
+        <a href="policies.html#returns">Returns</a>
+        <a href="policies.html#privacy">Privacy</a>
+      </div>
+    </div>
+    <div class="footer-note">© 2025 AZROH — Wearable Art.</div>
   </footer>
 
+  <!-- Tiny inline script for mobile menu with a11y -->
+  <script>
+    const toggle = document.querySelector('.nav-toggle');
+    const links = document.querySelector('.nav-links');
+    if (toggle && links) {
+      toggle.addEventListener('click', () => {
+        const open = links.classList.toggle('show');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    }
+  </script>
 </body>
 </html>
