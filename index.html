@@ -6,7 +6,6 @@
   <title>AZROH — Wearable Art</title>
 
   <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@300;500&display=swap" rel="stylesheet">
 
   <!-- Styles -->
@@ -16,15 +15,11 @@
 
   <!-- Hero Section -->
   <div class="hero">
-    <div class="hero-media">
-      <video autoplay muted loop playsinline preload="metadata" poster="images/hero.jpg" id="heroVideo">
-        <!-- Put MP4 first for Safari; keep WebM as optional second -->
-        <source src="videos/hero.mp4" type="video/mp4">
-        <source src="videos/hero.webm" type="video/webm">
-      </video>
-      <!-- Mobile/No-video fallback -->
-      <img src="images/hero.jpg" alt="" aria-hidden="true">
-    </div>
+    <video autoplay muted loop playsinline poster="images/hero.jpg">
+      <source src="videos/hero.mp4" type="video/mp4">
+      <!-- Fallback image for browsers without autoplay -->
+      <img src="images/hero.jpg" alt="Azroh Wearable Art">
+    </video>
     <div class="hero-text">
       <h1>AZROH</h1>
       <p>Wearable Art. Eternal Stories.</p>
@@ -41,7 +36,7 @@
   <!-- Craftsmanship -->
   <section class="craftsmanship">
     <h2>Craftsmanship & Process</h2>
-    <p>Our T-shirts are built from premium fabrics, printed with museum-grade techniques, and designed with emotional storytelling in mind. Every drop is limited, never reprinted, making your Azroh piece truly one of a kind.</p>
+    <p>Our T‑shirts are built from premium fabrics, printed with museum-grade techniques, and designed with emotional storytelling in mind. Every drop is limited, never reprinted, making your Azroh piece truly one of a kind.</p>
   </section>
 
   <!-- The Collection -->
@@ -50,7 +45,7 @@
     <div class="product-grid">
       <div class="product">
         <a href="product1.html">
-          <img src="images/mockup1.jpg" alt="Collector's Edition Tee" loading="lazy" width="1200" height="1500">
+          <img src="images/mockup1.jpg" alt="Collector's Edition Tee">
         </a>
         <div class="product-info">
           <p>Collector's Edition Tee — ₹2,500</p>
@@ -58,7 +53,7 @@
       </div>
       <div class="product">
         <a href="product2.html">
-          <img src="images/mockup2.jpg" alt="Gallery Drop Tee" loading="lazy" width="1200" height="1500">
+          <img src="images/mockup2.jpg" alt="Gallery Drop Tee">
         </a>
         <div class="product-info">
           <p>Gallery Drop Tee — ₹1,500</p>
@@ -66,7 +61,7 @@
       </div>
       <div class="product">
         <a href="product3.html">
-          <img src="images/mockup3.jpg" alt="Limited Street Tee" loading="lazy" width="1200" height="1500">
+          <img src="images/mockup3.jpg" alt="Limited Street Tee">
         </a>
         <div class="product-info">
           <p>Limited Street Tee — ₹1,500</p>
@@ -80,36 +75,5 @@
     © 2025 AZROH — Wearable Art.
   </footer>
 
-  <!-- Autoplay nudge + graceful fallback -->
-  <script>
-    (function() {
-      const v = document.getElementById('heroVideo');
-      if (!v) return;
-
-      function showFallback() {
-        document.documentElement.classList.add('no-video');
-      }
-
-      function tryPlay() {
-        // ensure muted for autoplay policies
-        v.muted = true;
-        const p = v.play();
-        if (p && typeof p.then === 'function') {
-          p.catch(() => showFallback());
-        }
-      }
-
-      // Try once quickly, again when metadata is ready, and when tab becomes visible
-      tryPlay();
-      v.addEventListener('loadedmetadata', tryPlay, { once: true });
-      v.addEventListener('error', showFallback);
-      document.addEventListener('visibilitychange', () => {
-        if (!document.hidden && !v.paused) return;
-        tryPlay();
-      });
-      // Safety timeout in case nothing fires
-      setTimeout(tryPlay, 400);
-    })();
-  </script>
 </body>
 </html>
