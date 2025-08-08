@@ -6,6 +6,7 @@
   <title>AZROH — Wearable Art</title>
 
   <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@300;500&display=swap" rel="stylesheet">
 
   <!-- Styles -->
@@ -19,6 +20,8 @@
       <video autoplay muted loop playsinline poster="images/hero.jpg" id="heroVideo">
         <source src="videos/hero.mp4" type="video/mp4">
       </video>
+      <!-- Mobile/No-video fallback -->
+      <img src="images/hero.jpg" alt="" aria-hidden="true">
     </div>
     <div class="hero-text">
       <h1>AZROH</h1>
@@ -36,7 +39,7 @@
   <!-- Craftsmanship -->
   <section class="craftsmanship">
     <h2>Craftsmanship & Process</h2>
-    <p>Our T‑shirts are built from premium fabrics, printed with museum-grade techniques, and designed with emotional storytelling in mind. Every drop is limited, never reprinted, making your Azroh piece truly one of a kind.</p>
+    <p>Our T-shirts are built from premium fabrics, printed with museum-grade techniques, and designed with emotional storytelling in mind. Every drop is limited, never reprinted, making your Azroh piece truly one of a kind.</p>
   </section>
 
   <!-- The Collection -->
@@ -45,7 +48,7 @@
     <div class="product-grid">
       <div class="product">
         <a href="product1.html">
-          <img src="images/mockup1.jpg" alt="Collector's Edition Tee">
+          <img src="images/mockup1.jpg" alt="Collector's Edition Tee" loading="lazy" width="1200" height="1500">
         </a>
         <div class="product-info">
           <p>Collector's Edition Tee — ₹2,500</p>
@@ -53,7 +56,7 @@
       </div>
       <div class="product">
         <a href="product2.html">
-          <img src="images/mockup2.jpg" alt="Gallery Drop Tee">
+          <img src="images/mockup2.jpg" alt="Gallery Drop Tee" loading="lazy" width="1200" height="1500">
         </a>
         <div class="product-info">
           <p>Gallery Drop Tee — ₹1,500</p>
@@ -61,7 +64,7 @@
       </div>
       <div class="product">
         <a href="product3.html">
-          <img src="images/mockup3.jpg" alt="Limited Street Tee">
+          <img src="images/mockup3.jpg" alt="Limited Street Tee" loading="lazy" width="1200" height="1500">
         </a>
         <div class="product-info">
           <p>Limited Street Tee — ₹1,500</p>
