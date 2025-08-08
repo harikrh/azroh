@@ -26,7 +26,8 @@ body {
   overflow: hidden;
 }
 
-/* Media (video + fallback image) */
+.hero .hero-media { position: relative; z-index: 0; }
+
 .hero video,
 .hero img,
 .hero .hero-media img {
@@ -36,6 +37,9 @@ body {
   height: 100%;
   object-fit: cover;
 }
+
+/* Hide fallback image on desktop; show only on mobile */
+.hero .hero-media img { display: none; }
 
 /* Subtle overlay to improve text legibility */
 .hero::after {
