@@ -5,11 +5,7 @@
   --softwhite: #EAEAEA;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
   background-color: var(--black);
@@ -22,7 +18,7 @@ body {
 .hero {
   position: relative;
   height: 100vh;
-  min-height: 100svh; /* better mobile viewport */
+  min-height: 100svh;
   overflow: hidden;
 }
 
@@ -38,10 +34,10 @@ body {
   object-fit: cover;
 }
 
-/* Hide fallback image on desktop; show only on mobile */
+/* Hide fallback image on desktop by default */
 .hero .hero-media img { display: none; }
 
-/* Subtle overlay to improve text legibility */
+/* Overlay for readability */
 .hero::after {
   content: "";
   position: absolute;
@@ -53,18 +49,15 @@ body {
 
 .hero-text {
   position: relative;
-  z-index: 2; /* above overlay */
+  z-index: 2;
   text-align: center;
   color: var(--ivory);
   top: 50%;
   transform: translateY(-50%);
-  animation: fadeInOpacity 1.2s ease forwards; /* only fade, no translate */
+  animation: fadeInOpacity 1.2s ease forwards;
 }
 
-@keyframes fadeInOpacity {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
+@keyframes fadeInOpacity { from { opacity: 0; } to { opacity: 1; } }
 
 .hero-text h1 {
   font-family: 'Playfair Display', serif;
@@ -73,10 +66,7 @@ body {
   margin-bottom: 0.5rem;
 }
 
-.hero-text p {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-}
+.hero-text p { font-size: 1.2rem; margin-bottom: 2rem; }
 
 .hero-text a {
   background-color: var(--gold);
@@ -87,14 +77,10 @@ body {
   transition: background-color 0.3s ease;
 }
 
-.hero-text a:hover {
-  background-color: var(--ivory);
-}
+.hero-text a:hover { background-color: var(--ivory); }
 
 /* Sections */
-section {
-  padding: 6rem 10%;
-}
+section { padding: 6rem 10%; }
 
 section h2 {
   font-family: 'Playfair Display', serif;
@@ -103,11 +89,7 @@ section h2 {
   color: var(--gold);
 }
 
-section p {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  max-width: 800px;
-}
+section p { font-size: 1.1rem; line-height: 1.8; max-width: 800px; }
 
 /* Product Grid */
 .product-grid {
@@ -117,10 +99,7 @@ section p {
   margin-top: 3rem;
 }
 
-.product {
-  position: relative;
-  overflow: hidden;
-}
+.product { position: relative; overflow: hidden; }
 
 .product img {
   width: 100%;
@@ -129,14 +108,11 @@ section p {
   transition: transform 0.5s ease;
 }
 
-.product:hover img {
-  transform: scale(1.05);
-}
+.product:hover img { transform: scale(1.05); }
 
 .product-info {
   position: absolute;
-  bottom: 0;
-  width: 100%;
+  bottom: 0; width: 100%;
   padding: 1rem;
   background: rgba(0,0,0,0.5);
   color: var(--ivory);
@@ -144,15 +120,11 @@ section p {
   transition: opacity 0.3s ease;
 }
 
-.product:hover .product-info {
-  opacity: 1;
-}
+.product:hover .product-info { opacity: 1; }
 
-/* Keyboard accessibility: reveal info on focus */
+/* Keyboard accessibility */
 .product a:focus-visible + .product-info,
-.product:focus-within .product-info {
-  opacity: 1;
-}
+.product:focus-within .product-info { opacity: 1; }
 
 /* Footer */
 footer {
@@ -164,81 +136,42 @@ footer {
 
 /* Mobile Optimization */
 @media (max-width: 768px) {
-  .hero video {
-    display: none;
-  }
-  .hero .hero-media img {
-    display: block;
-  }
+  .hero video { display: none; }
+  .hero .hero-media img { display: block; }
 }
 
-/* -----------------------------------
-   Product Detail & Checkout Pages
------------------------------------ */
+/* JS-driven fallback if autoplay fails */
+html.no-video .hero video { display: none; }
+html.no-video .hero .hero-media img { display: block; }
 
-.product-page, .checkout-page {
-  padding: 3rem 10%;
-}
+/* Product Detail & Checkout Pages */
+.product-page, .checkout-page { padding: 3rem 10%; }
 
 .back-link {
-  display: inline-block;
-  margin-bottom: 2rem;
-  text-decoration: none;
-  color: var(--gold);
-  font-weight: bold;
+  display: inline-block; margin-bottom: 2rem;
+  text-decoration: none; color: var(--gold); font-weight: bold;
 }
+.back-link:hover { color: var(--ivory); }
 
-.back-link:hover {
-  color: var(--ivory);
-}
+.product-detail { display: flex; flex-wrap: wrap; gap: 3rem; }
 
-.product-detail {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 3rem;
-}
+.product-images img { max-width: 500px; width: 100%; border-radius: 12px; }
 
-.product-images img {
-  max-width: 500px;
-  width: 100%;
-  border-radius: 12px;
-}
+.product-info-detail { flex: 1; }
 
-.product-info-detail {
-  flex: 1;
-}
+.price { font-size: 1.5rem; color: var(--gold); margin-bottom: 1rem; }
 
-.price {
-  font-size: 1.5rem;
-  color: var(--gold);
-  margin-bottom: 1rem;
-}
-
-.description {
-  margin-bottom: 2rem;
-  line-height: 1.6;
-}
+.description { margin-bottom: 2rem; line-height: 1.6; }
 
 .buy-now-btn {
-  display: inline-block;
-  background: var(--gold);
-  color: var(--black);
-  padding: 1rem 2rem;
-  font-weight: bold;
-  text-decoration: none;
-  border-radius: 6px;
-  transition: background 0.3s ease;
+  display: inline-block; background: var(--gold); color: var(--black);
+  padding: 1rem 2rem; font-weight: bold; text-decoration: none;
+  border-radius: 6px; transition: background 0.3s ease;
 }
-
-.buy-now-btn:hover {
-  background: var(--ivory);
-}
+.buy-now-btn:hover { background: var(--ivory); }
 
 /* Checkout Form */
-.checkout-form {
-  max-width: 500px;
-  margin: auto;
-}
+.checkout-form { max-width: 500px; margin: auto; }
 
 .checkout-form h1 {
   margin-bottom: 2rem;
@@ -246,44 +179,24 @@ footer {
   color: var(--gold);
 }
 
-.checkout-form label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: 500;
-}
+.checkout-form label { display: block; margin-bottom: 0.5rem; font-weight: 500; }
 
 .checkout-form input,
 .checkout-form textarea,
 .checkout-form select {
-  width: 100%;
-  padding: 0.8rem;
-  margin-bottom: 1.5rem;
-  border: none;
-  border-radius: 6px;
-  background-color: #222;
-  color: var(--softwhite);
+  width: 100%; padding: 0.8rem; margin-bottom: 1.5rem;
+  border: none; border-radius: 6px; background-color: #222; color: var(--softwhite);
 }
 
 .checkout-form input:focus,
 .checkout-form textarea:focus,
-.checkout-form select:focus {
-  outline: 2px solid var(--gold);
-}
+.checkout-form select:focus { outline: 2px solid var(--gold); }
 
 .checkout-form button {
-  width: 100%;
-  background: var(--gold);
-  color: var(--black);
-  padding: 1rem;
-  font-weight: bold;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
+  width: 100%; background: var(--gold); color: var(--black);
+  padding: 1rem; font-weight: bold; border: none; border-radius: 6px; cursor: pointer;
 }
-
-.checkout-form button:hover {
-  background: var(--ivory);
-}
+.checkout-form button:hover { background: var(--ivory); }
 
 /* Motion respect */
 @media (prefers-reduced-motion: reduce) {
